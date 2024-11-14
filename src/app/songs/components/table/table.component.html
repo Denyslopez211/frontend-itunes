@@ -1,0 +1,63 @@
+@if(!loading){
+<app-spinner />
+} @if(loading && dataSource().length === 0){
+<mat-card>
+  <mat-card-content>No hay canciones para la mostrar</mat-card-content>
+</mat-card>
+}@else {
+<table
+  mat-table
+  [dataSource]="dataSource()"
+  class="mat-elevation-z8 demo-table"
+>
+  <!-- Nombre canción Column -->
+  <ng-container matColumnDef="song">
+    <th mat-header-cell *matHeaderCellDef class="column-song">
+      Nombre canción
+    </th>
+    <td mat-cell *matCellDef="let element" class="column-song">
+      {{ element.nombre_tema }}
+    </td>
+  </ng-container>
+
+  <!-- Album Column -->
+  <ng-container matColumnDef="album">
+    <th mat-header-cell *matHeaderCellDef class="column-album">Nombre Album</th>
+    <td mat-cell *matCellDef="let element" class="column-album">
+      {{ element.nombre_album }}
+    </td>
+  </ng-container>
+
+  <!-- url Column -->
+  <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef class="column-url">Url preview</th>
+    <td mat-cell *matCellDef="let element" class="column-url">
+      <audio controls>
+        <source [src]="element.preview_url" type="audio/mpeg" />
+        Tu navegador no soporta la reproducción de audio.
+      </audio>
+    </td>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef class="column-price">Precio</th>
+    <td mat-cell *matCellDef="let element" class="column-price">
+      {{ element.precio.valor }}
+    </td>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef class="column-date">
+      Fecha de Lanzamiento
+    </th>
+    <td mat-cell *matCellDef="let element" class="column-date">
+      {{ element.fecha_lanzamiento }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns()"></tr>
+</table>
+}

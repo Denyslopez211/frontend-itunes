@@ -1,0 +1,42 @@
+.mat-table {
+  width: 100%;
+}
+
+th.mat-header-cell,
+td.mat-cell {
+  text-align: left;
+  padding: 8px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.column-song {
+  flex: 0 0 100px;
+}
+
+.column-album {
+  flex: 0 0 200px;
+}
+
+.column-url {
+  flex: 0 0 300px;
+}
+
+.column-price {
+  flex: 0 0 100px;
+}
+
+.column-date {
+  flex: 0 0 150px;
+}
+
+.mat-row,
+.mat-header-row {
+  display: flex;
+}
+
+.mat-cell,
+.mat-header-cell {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,16 @@
+<div class="flex flex-column mt-3">
+  <mat-form-field>
+    <mat-label>Buscador banda de música</mat-label>
+    <input
+      type="text"
+      (keyup.enter)="searchSong(txtInputSearch.value)"
+      matInput
+      placeholder="Ex. Radiohead"
+      value="Radiohead"
+      #txtInputSearch
+    />
+    <mat-icon matSuffix (onClick)="searchSong(txtInputSearch.value)"
+      >search</mat-icon
+    >
+  </mat-form-field>
+</div>
